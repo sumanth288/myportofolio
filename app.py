@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Mock AI Chatbot Responses
