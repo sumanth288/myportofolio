@@ -6,8 +6,8 @@
     <title>NexaFlow Digital | Intelligent Digital Experiences</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="NexaFlow Digital offers premium Web Development, AI/Generative AI Solutions, and Digital Marketing services to build intelligent digital experiences.">
-    <meta name="keywords" content="Web Development, AI, Generative AI, Chatbots, Digital Marketing, SEO, SaaS, Startup Agency">
+    <meta name="description" content="NexaFlow Digital offers premium Web Development and AI/Generative AI Solutions to build intelligent digital experiences.">
+    <meta name="keywords" content="Web Development, AI, Generative AI, Chatbots, SaaS, Startup Agency">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,6 @@
             <a href="#" class="logo">Nexa<span>Flow</span></a>
             <div class="nav-links">
                 <a href="#services">Services</a>
-                <a href="#portfolio">Portfolio</a>
                 <a href="#process">Process</a>
                 <a href="#contact" class="btn-primary btn-nav">Get Started</a>
             </div>
@@ -54,7 +53,6 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#services" class="mobile-link">Services</a>
-        <a href="#portfolio" class="mobile-link">Portfolio</a>
         <a href="#process" class="mobile-link">Process</a>
         <a href="#contact" class="btn-primary mobile-btn">Get Started</a>
     </div>
@@ -66,54 +64,25 @@
             <div class="blob blob-2"></div>
             <div class="blob blob-3"></div>
         </div>
-        <div class="hero-content">
-            <span class="badge fade-up">🚀 Next-Gen Agency</span>
-            <h1 class="hero-title fade-up">We Build <span class="text-gradient">Intelligent</span><br>Digital Experiences</h1>
-            <p class="hero-subtitle fade-up">Elevate your brand with bleeding-edge Web Development, custom AI Solutions, and data-driven Digital Marketing designed for the modern web.</p>
-            <div class="hero-cta fade-up">
-                <a href="#contact" class="btn-primary btn-large">Start a Project <i class="fas fa-arrow-right"></i></a>
-                <a href="#portfolio" class="btn-secondary btn-large">View Our Work</a>
+        <div class="container hero-container">
+            <div class="hero-text-side">
+                <span class="badge fade-up">🚀 Next-Gen Agency</span>
+                <h1 class="hero-title fade-up">We Build <span class="text-gradient">Intelligent</span><br>Digital Experiences</h1>
+                <p class="hero-subtitle fade-up">Elevate your brand with bleeding-edge Web Development and custom AI Solutions designed for the modern web.</p>
+                <div class="hero-cta fade-up">
+                    <a href="#contact" class="btn-primary btn-large">Start a Project <i class="fas fa-arrow-right"></i></a>
+                    <a href="#services" class="btn-secondary btn-large">Our Expertise</a>
+                </div>
+            </div>
+            <div class="hero-image-side fade-up">
+                <div class="hero-image-wrapper">
+                    <img src="static/images/hero_concept.png" alt="Futuristic Web Development & AI Solutions" class="hero-img">
+                </div>
             </div>
         </div>
-        <div class="scroll-indicator fade-up">
-            <span class="mouse">
-                <span class="wheel"></span>
-            </span>
-            <p>Scroll down</p>
-        </div>
+
     </section>
 
-    <!-- Trust / Stats Section -->
-    <section class="trust-section">
-        <div class="container">
-            <p class="trust-title">TRUSTED BY INNOVATIVE TEAMS WORLDWIDE</p>
-            <div class="logos-grid">
-                <div class="logo-item"><i class="fab fa-aws"></i> AWS Partners</div>
-                <div class="logo-item"><i class="fab fa-stripe"></i> Stripe Experts</div>
-                <div class="logo-item"><i class="fab fa-react"></i> React Core</div>
-                <div class="logo-item"><i class="fas fa-robot"></i> OpenAI Devs</div>
-            </div>
-            
-            <div class="stats-container">
-                <div class="stat-box">
-                    <h3 class="counter" data-target="80">0</h3>
-                    <p>Projects Shipped</p>
-                </div>
-                <div class="stat-box">
-                    <h3 class="counter" data-target="99">0</h3><span>%</span>
-                    <p>Client Satisfaction</p>
-                </div>
-                <div class="stat-box">
-                    <h3 class="counter" data-target="15">0</h3><span>+</span>
-                    <p>AI Models Deployed</p>
-                </div>
-                <div class="stat-box">
-                    <h3 class="counter" data-target="300">0</h3><span>%</span>
-                    <p>Avg. ROI Driven</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -126,6 +95,9 @@
             <div class="services-grid">
                 <!-- Service 1 -->
                 <div class="service-card glass-panel">
+                    <div class="service-image-wrapper-mini">
+                        <img src="static/images/service_web.png" alt="Web Development Illustration" class="service-img-mini">
+                    </div>
                     <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3>Web Development</h3>
                     <p>From lightning-fast static landing pages to complex, dynamic full-stack web applications built on Next.js, React, and Python.</p>
@@ -138,6 +110,9 @@
                 
                 <!-- Service 2 -->
                 <div class="service-card glass-panel ai-card">
+                    <div class="service-image-wrapper-mini">
+                        <img src="static/images/service_ai.png" alt="AI & Automation Illustration" class="service-img-mini">
+                    </div>
                     <div class="service-icon"><i class="fas fa-brain"></i></div>
                     <h3>AI & Automation</h3>
                     <p>Custom Generative AI solutions. Intelligent chatbots, workflow automations, and LLM integrations to 10x your productivity.</p>
@@ -148,17 +123,7 @@
                     </ul>
                 </div>
                 
-                <!-- Service 3 -->
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Digital Marketing</h3>
-                    <p>Data-driven growth strategies. SEO optimization, targeted ad campaigns, and conversion rate optimization to scale your revenue.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Technical SEO</li>
-                        <li><i class="fas fa-check"></i> Growth Hacking</li>
-                        <li><i class="fas fa-check"></i> Performance Marketing</li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </section>
@@ -204,121 +169,7 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Selected <span class="text-gradient">Works</span></h2>
-                <p class="section-desc">Explore some of our recent premium digital transformations.</p>
-            </div>
-            
-            <div class="portfolio-grid">
-                <!-- Project 1 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image" style="background: linear-gradient(45deg, #1e1e2e, #2a2a3e);">
-                        <div class="mockup-placeholder">FinDash Pro <br><small>SaaS Analytics UI</small></div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <h3>FinDash Pro</h3>
-                        <p>Web App & AI Predictions</p>
-                        <a href="#" class="btn-icon"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image" style="background: linear-gradient(45deg, #0f172a, #1e293b);">
-                        <div class="mockup-placeholder">HealthTrack AI <br><small>Medical Diagnostics</small></div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <h3>HealthTrack AI</h3>
-                        <p>AI Integration & UI Design</p>
-                        <a href="#" class="btn-icon"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image" style="background: linear-gradient(45deg, #2e1065, #4c1d95);">
-                        <div class="mockup-placeholder">Aura Commerce <br><small>Headless Storefront</small></div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <h3>Aura Commerce</h3>
-                        <p>E-commerce & Marketing</p>
-                        <a href="#" class="btn-icon"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image" style="background: linear-gradient(45deg, #064e3b, #047857);">
-                        <div class="mockup-placeholder">EcoSync <br><small>IoT Dashboard</small></div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <h3>EcoSync</h3>
-                        <p>Full-Stack Web App</p>
-                        <a href="#" class="btn-icon"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4">
-                <a href="#" class="btn-secondary">View All Projects</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials Carousel -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title text-center">Client <span class="text-gradient">Stories</span></h2>
-            
-            <div class="testimonial-carousel-container">
-                <div class="testimonial-track" id="testimonialTrack">
-                    <!-- T1 -->
-                    <div class="testimonial-card glass-panel">
-                        <div class="stars">★★★★★</div>
-                        <p class="quote">"NexaFlow completely transformed our SaaS platform. The new UI is stunning, and the AI chatbot they integrated reduced our support tickets by 40%."</p>
-                        <div class="client-info">
-                            <div class="avatar" style="background: #7c3aed;">SA</div>
-                            <div>
-                                <h4>Sarah Adams</h4>
-                                <p>CEO, TechFlow</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- T2 -->
-                    <div class="testimonial-card glass-panel">
-                        <div class="stars">★★★★★</div>
-                        <p class="quote">"Working with this agency was a breeze. They delivered a highly complex generative AI feature on time. Highly recommend for enterprise solutions."</p>
-                        <div class="client-info">
-                            <div class="avatar" style="background: #0ea5e9;">MR</div>
-                            <div>
-                                <h4>Mark Roberts</h4>
-                                <p>CTO, DataSync</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- T3 -->
-                    <div class="testimonial-card glass-panel">
-                        <div class="stars">★★★★★</div>
-                        <p class="quote">"Their digital marketing team 3x'd our organic traffic in just 6 months. The combination of great web dev and smart marketing is unbeatable."</p>
-                        <div class="client-info">
-                            <div class="avatar" style="background: #10b981;">EL</div>
-                            <div>
-                                <h4>Elena Lin</h4>
-                                <p>Founder, GrowthX</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-controls">
-                    <button id="prevTestimonial" class="control-btn"><i class="fas fa-chevron-left"></i></button>
-                    <button id="nextTestimonial" class="control-btn"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -343,13 +194,7 @@
                                 <p>+1 (555) 123-4567</p>
                             </div>
                         </div>
-                        <div class="info-item">
-                            <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <h4>Visit Us</h4>
-                                <p>San Francisco, CA (HQ)</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 
@@ -410,7 +255,6 @@
                     <h4>Services</h4>
                     <a href="#">Web Development</a>
                     <a href="#">AI Solutions</a>
-                    <a href="#">Digital Marketing</a>
                     <a href="#">UI/UX Design</a>
                 </div>
                 <div class="link-group">
@@ -433,34 +277,7 @@
         </div>
     </footer>
 
-    <!-- Floating Chatbot Widget -->
-    <div class="chatbot-widget">
-        <button id="chatbotToggle" class="chat-toggle-btn">
-            <i class="fas fa-comment-dots"></i>
-        </button>
-        
-        <div id="chatbotWindow" class="chat-window hidden glass-panel">
-            <div class="chat-header">
-                <div class="chat-title">
-                    <div class="status-dot"></div>
-                    <span>Nexa AI Assistant</span>
-                </div>
-                <button id="chatbotClose" class="chat-close"><i class="fas fa-times"></i></button>
-            </div>
-            
-            <div class="chat-body" id="chatBody">
-                <div class="message bot-msg">
-                    <div class="msg-bubble">Hello! I'm Nexa, your AI assistant. Ask me about our services, pricing, or portfolio! 👋</div>
-                </div>
-                <!-- Messages will be injected here -->
-            </div>
-            
-            <div class="chat-input-area">
-                <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off">
-                <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Custom Script -->
     <script src="static/js/script.js"></script>

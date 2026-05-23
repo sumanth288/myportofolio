@@ -166,11 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Trigger counter when stats section is visible
-    ScrollTrigger.create({
-        trigger: ".stats-container",
-        start: "top 80%",
-        onEnter: startCounters
-    });
+    if (document.querySelector('.stats-container')) {
+        ScrollTrigger.create({
+            trigger: ".stats-container",
+            start: "top 80%",
+            onEnter: startCounters
+        });
+    }
 
     // --------------------------------------------------------
     // Testimonials Carousel
@@ -182,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
 
     function updateCarousel() {
+        if (!track) return;
         cardsTestimonial.forEach((c, i) => {
             c.classList.remove('active');
             if (i === currentIndex) c.classList.add('active');
@@ -189,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    if (btnNext && btnPrev) {
+    if (track && btnNext && btnPrev) {
         btnNext.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % cardsTestimonial.length;
             updateCarousel();
@@ -204,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------
-    // Contact Form Submission
+    // Contact Form Submission (via Web3Forms)
     // --------------------------------------------------------
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
@@ -223,31 +226,39 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.className = 'form-status';
             formStatus.style.display = 'none';
 
-            const formData = {
+            // Web3Forms payload
+            const web3FormData = {
+                access_key: "25e7de58-5bd8-4786-bdd1-569b9a3f1dc2",
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value
+                message: document.getElementById('message').value,
+                subject: "🚀 New Project Inquiry — NexaFlow"
             };
 
             try {
-                const response = await fetch('/contact', {
+                const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(web3FormData)
                 });
                 
                 const data = await response.json();
                 
-                if (data.success) {
-                    formStatus.textContent = data.message;
+                formStatus.style.display = 'block';
+                if (response.status === 200 || data.success) {
+                    formStatus.textContent = "Thank you! Your message has been sent successfully. 🚀";
                     formStatus.classList.add('success');
                     contactForm.reset();
                 } else {
-                    formStatus.textContent = data.error || 'An error occurred. Please try again.';
+                    formStatus.textContent = data.message || 'An error occurred. Please try again.';
                     formStatus.classList.add('error');
                 }
             } catch (error) {
+                formStatus.style.display = 'block';
                 formStatus.textContent = 'Network error. Please check your connection and try again.';
                 formStatus.classList.add('error');
             } finally {
@@ -259,103 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --------------------------------------------------------
-    // Chatbot Logic
-    // --------------------------------------------------------
-    const chatToggle = document.getElementById('chatbotToggle');
-    const chatWindow = document.getElementById('chatbotWindow');
-    const chatClose = document.getElementById('chatbotClose');
-    const chatBody = document.getElementById('chatBody');
-    const chatInput = document.getElementById('chatInput');
-    const chatSend = document.getElementById('chatSend');
 
-    let chatHistory = []; // Optional: keep history if backend needs it later
-
-    // Toggle Chat Window
-    chatToggle.addEventListener('click', () => {
-        chatWindow.classList.remove('hidden');
-        chatToggle.style.transform = 'scale(0)';
-        setTimeout(() => chatInput.focus(), 300);
-    });
-
-    chatClose.addEventListener('click', () => {
-        chatWindow.classList.add('hidden');
-        chatToggle.style.transform = 'scale(1)';
-    });
-
-    function appendMessage(sender, text) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `message ${sender}-msg`;
-        
-        // Format text (simple markdown support for bold & newlines)
-        let formattedText = text.replace(/\n/g, '<br>');
-        formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        
-        msgDiv.innerHTML = `<div class="msg-bubble">${formattedText}</div>`;
-        chatBody.appendChild(msgDiv);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    function showTypingIndicator() {
-        const id = 'typing-' + Date.now();
-        const indicator = document.createElement('div');
-        indicator.id = id;
-        indicator.className = 'typing-indicator';
-        indicator.innerHTML = `
-            <div class="typing-dot"></div>
-            <div class="typing-dot"></div>
-            <div class="typing-dot"></div>
-        `;
-        chatBody.appendChild(indicator);
-        chatBody.scrollTop = chatBody.scrollHeight;
-        return id;
-    }
-
-    function removeTypingIndicator(id) {
-        const el = document.getElementById(id);
-        if (el) el.remove();
-    }
-
-    async function handleChatSubmit() {
-        const text = chatInput.value.trim();
-        if (!text) return;
-
-        // Add user message
-        appendMessage('user', text);
-        chatInput.value = '';
-        chatHistory.push({ role: 'user', content: text });
-
-        // Show bot typing...
-        const typingId = showTypingIndicator();
-
-        try {
-            const response = await fetch('/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: text, history: chatHistory })
-            });
-            
-            const data = await response.json();
-            
-            removeTypingIndicator(typingId);
-            
-            if (data.reply) {
-                appendMessage('bot', data.reply);
-                chatHistory.push({ role: 'bot', content: data.reply });
-            } else {
-                appendMessage('bot', "I'm having trouble connecting right now. Please try again later.");
-            }
-        } catch (err) {
-            removeTypingIndicator(typingId);
-            appendMessage('bot', "Sorry, I am currently offline. Please use the contact form to reach us.");
-        }
-    }
-
-    chatSend.addEventListener('click', handleChatSubmit);
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            handleChatSubmit();
-        }
-    });
 
 });
